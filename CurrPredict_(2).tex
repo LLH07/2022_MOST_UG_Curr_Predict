@@ -1,0 +1,539 @@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+
+
+\documentclass[12pt,a4paper]{article}
+
+\usepackage{microtype} % Slightly tweak font spacing for aesthetics
+
+\usepackage[a4paper, margin=25mm]{geometry} % Document margins
+\usepackage{multicol} % Used for the two-column layout of the document
+\usepackage{booktabs} % Horizontal rules in tables
+\usepackage{float} % Required for tables and figures in the multi-column environment - they need to be placed in specific locations with the [H] (e.g. \begin{table}[H])
+\usepackage{setspace}
+\usepackage[]{hyperref} % For hyperlinks in the PDF
+\usepackage{graphicx}
+
+\hypersetup{
+     bookmarks=true,         % show bookmarks bar?
+     unicode=false,          % non-Latin characters in Acrobat’s bookmarks
+     pdftoolbar=true,        % show Acrobat’s toolbar?
+     pdfmenubar=true,        % show Acrobat’s menu?
+     pdffitwindow=false,     % window fit to page when opened
+     pdfstartview={FitH},    % fits the width of the page to the window
+     pdftitle={My title},    % title
+     pdfauthor={Author},     % author
+     pdfsubject={Subject},   % subject of the document
+     pdfcreator={Creator},   % creator of the document
+     pdfproducer={Producer}, % producer of the document
+     pdfkeywords={keyword1} {key2} {key3}, % list of keywords
+     pdfnewwindow=true,      % links in new window
+     colorlinks=true,       % false: boxed links; true: colored links
+     linkcolor=blue,          % color of internal links (change box color with linkbordercolor)
+     citecolor=blue,        % color of links to bibliography
+     filecolor=magenta,      % color of file links
+     urlcolor=blue           % color of external links
+}
+
+\usepackage{paralist} % Used for the compactitem environment which makes bullet points with less space between them
+
+\usepackage{abstract} % Allows abstract customization
+\renewcommand{\abstractnamefont}{\normalfont\bfseries} % Set the "Abstract" text to bold
+\renewcommand{\abstracttextfont}{\normalfont\small\itshape} % Set the abstract itself to small italic text
+
+\usepackage{titlesec} % Allows customization of titles
+\renewcommand\thesection{\arabic{section}}
+\renewcommand\thesubsection{\arabic{subsection}}
+\renewcommand\thesubsubsection{\arabic{subsubsection}}
+\titleformat{\section}[block]{\large\bfseries\centering}{\thesection.}{1em}{} % Change the look of the section titles
+\titleformat{\subsection}{\bfseries}{\thesection.\thesubsection.}{1em}{} % Change the look of the section titles
+\titleformat{\subsubsection}{\bfseries}{\thesection.\thesubsection.\thesubsubsection.}{1em}{} % Change the look of the section titles
+%\usepackage{fancyhdr} % Headers and footers
+%\pagestyle{fancy} % All pages have headers and footers
+%\fancyhead{} % Blank out the default header
+%\fancyfoot{} % Blank out the default footer
+% \fancyhead[C]{Running title $\bullet$ November 2012 $\bullet$ Vol. XXI, No. 1} % Custom header text
+%\fancyfoot[RO,LE]{\thepage} % Custom footer text
+\usepackage{indentfirst} % Allow for indentation in first paragraph of a section
+\usepackage[]{natbib} % Use natbib package for citet command
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{bm}
+\usepackage[section]{placeins}
+\usepackage{rotating}
+\usepackage{chngcntr}
+\usepackage{chngpage}
+\usepackage{longtable}
+\usepackage{multirow}
+\usepackage{array}
+\usepackage{epstopdf}
+\usepackage{float}
+\usepackage{hvfloat}
+\usepackage{tabularx}
+\usepackage{adjustbox}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{rotating}
+\usepackage{dsfont}
+\setcounter{secnumdepth}{4} % default value for 'report' class is "2"
+
+\usepackage{mdwlist}
+
+\captionsetup{labelfont={color=black,bf,it}}
+
+\doublespacing
+
+
+
+\DeclareGraphicsExtensions{.eps}
+
+
+%----------------------------------------------------------------------------------------
+%	TITLE SECTION
+%----------------------------------------------------------------------------------------
+
+\title{\vspace{-25mm}\fontsize{16pt}{10pt}\selectfont\textbf{Does academic research destroy currency\\ return predictability?}\thanks{This is a work in progress. Comments are welcome.}}
+
+\author{
+\large
+\textsc{LUNG-HUNG LIN}\thanks{E-mail address: \url{108302062@nccu.edu.tw}.}\\[2mm] % Your name
+\normalsize National Chengchi University\\ % Your institution
+% \normalsize \href{mailto:ling.t.chung@bi.no}{ling.t.chung@bi.no} % Your email address
+\vspace{-20mm}
+}
+\date{}
+
+
+\setcounter{page}{2}
+
+\begin{document}
+
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash}p{#1}}
+
+\maketitle % Insert title
+
+\section*{Abstract}
+
+
+\noindent \\ In this article, we take inspiration from \citet*{MP2016} that the performances of equity factors tend to deteriorate after their appearance in academic journals. We examine whether similar phenomena exist in currency factors. We replicate four currency strategies published in top academic journals and study their out-of-sample and post-publication performances. We find that the currency carry strategy, the forward differentials currency carry strategy, and the currency value strategy weaken after their original sample period, while the currency momentum strategy remains robust. Among them, only the momentum strategy experiences decline in profitability after publication. That said, it continues to generate significant excess return post publication.  Our results suggest that both out-of-sample and publication effects are detrimental to the profitability of currency factors. Yet, we cannot rule out the possibility that some currency factors load on systematic risk premia and their excess returns reflect compensation for risk-taking.
+
+
+
+\noindent \textbf{JEL:}  F31, G12, G14, G15
+
+\noindent \textbf{Keywords:}   Currency factors, return predictability, publication impact, data snooping
+
+%\end{abstract}
+
+
+\newpage
+
+%----------------------------------------------------------------------------------------
+%	ARTICLE CONTENTS
+%----------------------------------------------------------------------------------------
+
+% \begin{multicols}{2} % Two-column layout throughout the main article text
+
+\section{Introduction}
+\label{sec:BG}
+
+\subsection{Motivations, research questions, and contributions}
+
+The foreign exchange (FX) market is the world’s most liquid market, according to the Foreign
+Exchange Committee (FEC).\footnote{The FEC FX Volume Survey is available at \url{https://www.newyorkfed.org/fxc/volumesurvey/index.html}.} This organization conducts regular surveys on FX trading
+among major financial institutions. Spot FX transactions’ average daily trading volume is
+about 400 billion USD, let alone the turnovers in derivatives such as FX forwards, futures,
+swaps, and options. Overall, 2 trillion USD changes hands every month in the FX market
+compared to around 3.7 billion USD in the NYSE.
+Like the equity market, traders worldwide endeavor to find trading strategies that can
+generate excess returns in the currency market. Since technical analysis and fundamental
+analysis are common in both equity and currency markets, academics and practitioners
+construct currency factors in similar fashions to equity factors. For example, \citet*{MSSS2012} find that the price momentum strategy \citep*{JT1993} also works in the currency market. Investors can earn a significant spread by
+buying winner currencies and selling loser currencies.
+According to  \citet*{HLZ2016}, many equity factors are artifacts of excessive
+data snooping. Therefore, we suspect currency factors are also susceptible to poor out-of sample performance. Inspired by \citet*{MP2016}, we study whether
+academic research destroys return predictability of currency factors in the FX market. Suppose the currency
+factor’s profitability is due to market inefficiency and mispricing, arbitrageurs will take
+advantage after the strategy is published. In that case, the
+FX predictability of the strategy will vanish post-publication. On the contrary, if the strategy continues to 
+deliver positive excess returns, then the factor may reflect exposures to systematic risk factors in the FX market. 
+
+
+\begin{basedescript}{\desclabelstyle{\pushlabel}\desclabelwidth{7em}}
+	\item[Hypothesis 1:]
+	The out-of-sample performances of currency factors are inferior to their in-sample counterpart.	
+\end{basedescript}
+
+If the Hypothesis 1 is true, these currency factors are susceptible to the data-snooping problem 
+as their performances deteriorate out-of-sample. Past performance does not guarantee future results,
+casting doubt on the validity of the strategy.	
+
+ 
+\begin{basedescript}{\desclabelstyle{\pushlabel}\desclabelwidth{7em}}
+	\item[Hypothesis 2:]
+	The profitability of currency factors erodes further post-publication in academic journals.
+\end{basedescript}
+ 
+Similarly, if the Hypothesis 2 is true, some diligent FX traders may
+mimic the strategies in these academic papers and potentially trade away the mispricings in the FX market.
+Informed traders promote market efficiency in currency market through active trading \citet*{Ross1976}. 
+Academic publications effectively reduce the limits of arbitrage in the FX market \citep*{SV1997, MP2016}.
+
+Our work contributes to our understanding of foreign exchange (FX) determination, currency market efficiency,
+and currency risk premia. Essentially, we shed light on the adverse effects of data-snooping and publication bias in affecting currency factors' profitability.
+Excess returns in currency factors can stem from potential mispricings as well as loading on systematic risk factors.
+
+
+This article is constructed as follows: First, we review published academic
+research on currency factors. Second, we describe our research methodology and
+data sources. Third, we present our empirical finding. Last, we conclude and discuss follow-up study in this topic.
+
+
+\subsection{Literature review}
+
+It is well known that there are remarkably many equity factors in stock markets. For
+example, \citet*{HLZ2020} use up to 150 risk factors to test asset pricing models,
+and \citet*{COCH2011} refers the enormous factor space as the “factor zoo”. For the currency market, we can roughly bisect
+currency factors into two parts, fundamental factors and technical factors. Fundamental currency
+factors consider characteristics such as interest rate differentials, macroeconomic conditions,
+and commodity currency. For example, \citet*{CR2003} argue that the price of the
+commodity exports has a significant and stable influence on the exporting country’s currency
+value. Technical currency factors, on the other hand, only consider historical evolution in FX rates. Examples
+of technical currency factors include moving average (MA), momentum, and volatility. \citet*{HTZ2016} find strong evidence of the predictive power of technical indicators
+on FX returns.
+
+With so many published currency factors, it remains an open empirical question on how well they perform out-of-sample and post-publication. 
+Table \ref{table:litrev} provides a summary of four 
+currency factors published on top finance journal and their construction details.
+
+
+\begin{table}[!htb]
+	
+	\caption{Literature review} 
+	
+	
+	\leftskip=0.75cm\rightskip=0.75cm
+	\footnotesize
+	
+	\centering
+	
+	\begin{footnotesize}
+		
+		\begin{tabular}{L{3cm}L{3cm}L{3cm}C{3cm}C{3cm}}
+			\toprule
+			Articles and authors &  Strategy constructions &   Instruments & Sampling periods & Factors \\
+			\midrule
+			``Carry'' \citep*{KMMV2018} & Portfolio:	ranked-based weights on currency’s one-month carry. Rebalance: the last trading day of every month & 20 currencies’ one-month currency forward contract & 11.1983 to 09.2017  (with some exemptions) & Carry \\
+			\midrule
+			``Currency Momentum Strategies'' \citep*{MSSS2012} & Portfolio: long the one-sixth of high momentum currency and short the one-sixth of low currency momentum. Rebalance: the last trading day of every month & 48 currencies' one-month currency forward contract & 01.1976 to 01.2010 (with some exemptions) & Momentum \\
+			\midrule
+			``Currency Value'' \citep*{MSSS2017} & Portfolio: linear weights by comparing the currency’s value strength to the average strength Rebalance: the end of each quarter & 23 advanced economics currencies & 1970Q1 to 2014Q1 (quarterly data) & Value \\
+			\midrule
+			``Good Carry, Bad Carry'' \citep*{BP2020} & Portfolio: equal-weighted portfolio by sorting commodity currency on their one month carry Rebalance: the last trading day of every month & G10 currencies' one-month forward discount & 12.1984 to 01.2014 & Forward Differentials Carry \\
+
+
+			\bottomrule
+		\end{tabular}
+		
+	\end{footnotesize}
+	
+\label{table:litrev}
+\end{table}
+
+
+
+\subsection{Methodology and Data}
+
+Following \citet*{MP2016}, we test our hypotheses by running the following regression:
+\begin{equation} \label{eq:1}
+	R_{it} = \alpha_{i} + \beta_{1}\text{Post Sample Dummy}_{it} + \beta_{2}\text{Post Publication Dummy}_{it} + e_{it}.
+\end{equation}
+\noindent Equation \ref{eq:1} shows the specification of the linear regression equation that we use throughout the article.
+$R_{it}$ is the portfolio return and $\alpha_{i}$ is the intercept which captures the unconditional average excess return 
+of the factor throughout the whole period (post-sample and out-of-sample period).
+To test our two hypotheses, $\beta_{1}$ and $\beta_{2}$ are the coefficients of the two dummy variables in the model.
+$\text{Post Sample Dummy}_{it}$ equals 0 if the month $t$ is within the sample period,  
+otherwise $\text{Post Sample Dummy}_{it}$ equals 1. Likewise, if the month $t$
+is after the sample period but before the publication date, then $\text{Post Publication Dummy}_{it}$ equals 0, otherwise 1. 
+The economics interception of $\beta_{1}$ is to examine the impact of data-snooping biases after the original sampling period. 
+$\beta_{2}$, on the other hand, captures both the impact of publication since market participants become aware of the recently published currency factor. To tackle potential autocorrelation and heteroskedasticity in the time-series data, we use the \citet*{NW1987} HAC estimator with one lag in estimating standard errors in our time-series regressions.
+
+
+We obtain spot and forward currency exchange data via Bloomberg and Thomson Reuters. 
+And hereafter the currency rates (both spot rate and forward rate) 
+are denoted by foreign currency per USD. Country-level inflation data is from World Bank. 
+
+
+\section{Results}
+
+\subsection{Carry Strategy}
+
+In this section, we follow \citet*{KMMV2018} to construct the carry strategy.
+First, they define carry as the currency's futures return, 
+and they assume allocating $X_{t}$ to fulfill the margin requirement
+of holding a futures contract with the current price $F_{t}$. 
+
+In month ${t+1}$, the price of the future becomes $F_{t+1}$, and we will have an additional $X_{t}(1+r_{t}^{f})$ 
+where $r_{t}^{f}$ is the risk-free rate. The total return on $t+1$ is therefore:
+\begin{equation}
+	R_{t+1}^{total \ return} = \frac{X_{t}(1+r_{t}^{f})+F_{t+1}-F_{t}-X_{t}}{X_{t}} =	\frac{F_{t+1}-F_{t}}{X_{t}}+r_{t}^{f}.
+\end{equation}
+
+The total return in excess of the risk-free rate is therefore
+\begin{equation}
+	R_{t+1}^{excess} = \frac{F_{t+1}-F_{t}}{X_{t}}
+\end{equation}
+ 
+If we assume spot prices follow martingale ($\mathbb{E}_{t}[S_{t+1}] = S_{t}$), and note the fact that on the futures contract's settlement date $t+1$, 
+futures price $F_{t+1}$ must converge towards the spot price $S_{t+1}$. Therefore the carry can be rewritten as:
+\begin{equation}
+	C_{t} = \frac{S_{t}-F_{t}}{X_{t}}\,.
+\end{equation}
+
+Based on the above equation, we further rewrite the excess return as:
+\begin{equation}
+	R_{t+1}^{excess} = \frac{S_{t+1}-F_{t}}{X_{t}} = \frac{S_{t+1}-S_{t}+S_{t}-F_{t}}{X_{t}} = C_{t}+\mathbb{E}_{t}(\frac{\Delta{S_{t+1}}}{X_{t}})+u_{t+1},
+\end{equation}
+where $\Delta{S_{t+1}}=S_{t+1}-S_{t}$ and $u_{t+1} = \frac{S_{t+1}-\mathbb{E}_{t}(S_{t+1})}{X_{t}}$ is the unexpected spot price shock with a mean of zero.
+The above equation reveals that carry ($C_{t}$) can predict an asset's excess return.
+
+There are a total of 20 currencies in our portfolio. We calculate the carry of each currency at the end of each month and
+rank them accordingly to get the weights. In particular, the weight on each currency $i$ in month $t$ is given by:
+$$ W_{t}^{i} = z_{t} \Bigl( rank(C_{t}^{i})-\frac{N_{t}+1}{2}  \Bigr), $$ where $C_{t}^{i}$ is currency $i$'s carry, 
+and $N_{t}$ is the total amount of currencies in 
+the portfolio. $z_{t}$ is the scaling factor which ensures the sum of the long and the short positions equal to 1 and -1, respectively.  
+
+\begin{figure}
+	\includegraphics[width=\linewidth]{carryCum.png}
+	\caption{Cumulative return of the carry strategy}
+\label{fig:cumRet}
+\end{figure}
+
+Figure \ref{fig:cumRet} shows the cumulative return of the carry strategy across the sampling period and the post-sampling period. 
+The red vertical line indicates the end of the sample period and the blue vertical line indicates the date of publication. 
+Overall, this strategy generates about 200\% return during the period, and experiences mild draw-downs in 
+portfolio values occasionally.
+
+\begin{table}[!htb]
+	
+	\caption{Estimates of Equation \ref{eq:1} for the currency carry factor} 
+	
+	\leftskip=0.75cm\rightskip=0.75cm
+	\footnotesize
+	
+	\centering
+	
+	\begin{footnotesize}
+		
+		\begin{tabular}{L{2cm}C{2cm}C{4cm}}
+			\toprule
+			 &  Coefficients &   T-statistics (p-value)  \\
+			\midrule
+			Intercept & 0.0024 & 2.154 (0.032) \\
+			$\beta_{1}$ & -0.0003 & -0.145 (0.885) \\
+			$\beta_{2}$ & 0.0015 &  0.448 (0.654) \\
+			\bottomrule
+		\end{tabular}
+		
+	\end{footnotesize}
+	
+\label{table:carryHypo}
+\end{table}
+
+Table \ref{table:carryHypo} reports the average excess return of the carry strategy.
+Average excess returns decline in the post-sample period but increases a little 
+after the publication date. Given both $\beta_{1}$ and $\beta_{2}$ are not statistically significant, 
+we further examine an alternative carry strategy as a robustness check.
+
+The previous portfolio consists of 48 currencies where some of them are less liquid. Therefore, we test another strategy 
+proposed by \citet*{BP2020} . Their equal weighted carry strategy only uses 10 major currencies (G10) 
+that buys currencies with the top 5 highest forward differentials 
+and shorts currencies with the bottom 5 lowest forward differentials. Forward differentials are defined as
+$$FD_{t} = \frac{F_{t}}{S_{t}}-1\,,$$ where $F_{t}$ is the one-month forward rate of the currency and $S_{t}$ is the spot rate of the currency. 
+
+\begin{figure}
+	\includegraphics[width=\linewidth]{carryCum2 (0327).png}
+	\caption{Cumulative return of the forward differentials carry strategy}
+\label{fig:cumRet2}
+\end{figure}
+
+Figure \ref{fig:cumRet2} plots the portfolio value of the strategy over time.
+Aside from the fact that this strategy exhibits smoother pattern, the overall trend looks like
+the original carry strategy.
+
+\begin{table}[!htb]
+	
+	\caption{Estimates for \ref{eq:1} for the forward differentials currency carry factor} 
+	
+	\leftskip=0.75cm\rightskip=0.75cm
+	\footnotesize
+	
+	\centering
+	
+	\begin{footnotesize}
+		
+		\begin{tabular}{L{2cm}C{2cm}C{4cm}}
+			\toprule
+			&  Coefficients &   T-statistics (p-value)  \\
+			\midrule
+			Intercept & 0.0009 & 3.463 (0.000) \\
+			$\beta_{1}$ & -0.0016 & -2.169 (0.031) \\
+			$\beta_{2}$ & 0.0000 & 0.102 (0.919) \\
+			\bottomrule
+		\end{tabular}
+		
+	\end{footnotesize}
+	
+\label{table:carryHypo2}
+\end{table}
+
+Table \ref{table:carryHypo2} presents the result of the forward differentials carry strategy. 
+The excess return of this strategy also decreases by about 0.16\% monthly (or about 1.9\% annually). furthermore, $\beta_{1}$ is significant at the 5\% significance level. 
+$\beta_{2}$ does not statistically affect the excess return.
+In other words, the average excess return does not change much after the publication date.
+
+
+\subsection{Currency Momentum}
+In this section, we follow \citet*{MSSS2012} in constructing the currency momentum strategy.
+Currency excess return for holding foreign currency $k$ is given by
+\begin{equation}
+	rx_{t+1}^{k} \equiv i_{t}^{k}-i_{t}-\Delta{s_{t+1}^{k}} \approx f_{t}^{k}-s_{t+1}^{k},
+\end{equation}
+
+\noindent where $s$ and $f$ denote the log spot price and the log forward price (foreign currency per unit of USD). 
+\citet*{NW2011} show that choosing the portfolio weights of currencies based on their 
+past performance can yield significant returns. The strategy is rebalanced monthly, 
+and the rule is to long top $\frac{1}{6}$ of the highest momentum currency and to short 
+the bottom $\frac{1}{6}$ of the lowest momentum currency. 
+
+\begin{figure}
+	\includegraphics[width=\linewidth]{momCum.png}
+	\caption{Cumulative return of the currency momentum strategy}
+\label{fig:momCum}
+\end{figure}
+
+Figure \ref{fig:momCum} presents the result of the currency momentum strategy. 
+It is obvious that the currency momentum effect is strong. 
+Investing one dollar at the beginning of 1990 can accumulate up to nine dollars in 2022.
+
+
+
+\begin{table}[!htb]
+	
+	\caption{Estimates for \ref{eq:1} for the currency momentum factor} 
+	
+	\leftskip=0.75cm\rightskip=0.75cm
+	\footnotesize
+	
+	\centering
+	
+	\begin{footnotesize}
+		
+		\begin{tabular}{L{2cm}C{2cm}C{4cm}}
+			\toprule
+			&  Coefficients & T-statistics (p-value)    \\
+			\midrule
+			Intercept & 0.0277 & 3.674 (0.000)\\
+			$\beta_{1}$ & 0.0049 & 0.462 (0.647)\\
+			$\beta_{2}$ & -0.0208 & -2.248 (0.030)\\
+			\bottomrule
+		\end{tabular}
+		
+	\end{footnotesize}
+	
+\label{table:cumHypo}
+\end{table}
+
+Table \ref{table:cumHypo} gives the result of the regression. 
+The slope of $\beta_{1}$ is positive, albeit statistically insignificant. 
+However, things change after the publication of the currency momentum factor since the slope of $\beta_{2}$ is -2\% 
+and is significant at the 5\% significance level. Therefore the currency momentum strategy weakens after
+accounting for publication bias. That said, the strategy remains profitable post-publication.
+
+
+\subsection{Currency Value}
+In this section, we use the method proposed by \citet*{MSSS2017} to construct the value factor strategy. The RER, or Real Exchange Rate, denoted $R$, is a common measure of currency valuation. 
+In particular, 
+
+\begin{equation}
+	R_{t} = \frac{P_{t}^{\star}}{S_{t}*P_{t}}, 
+\end{equation}
+where $S$ denotes the spot price, $P_{t}$ and $P_{t}^{\star}$
+denotes the U.S. price level and foreign price level, respectively. 
+
+The currency value portfolio takes a rank-based weighting scheme which is the same as the \citet*{KMMV2018} carry strategy. 
+It ensures the inclusion of all currencies in the universe 
+and delivers a more stable return compare to a top minus bottom x\% approach. 
+
+\begin{figure}
+	\includegraphics[width=\linewidth]{valueCum(0330).png}
+	\caption{Cumulative return of the value strategy}
+\label{fig:valueCum}
+\end{figure}
+
+Figure \ref{fig:valueCum} shows the cumulative return from 1984 to 2022. The cumulative return
+of this strategy is not as high as the currency momentum strategy and experiences some bumpy periods. 
+
+\begin{table}[!htb]
+	
+	\caption{Estimates of \ref{eq:1} for the currency value factor} 
+	
+	\leftskip=0.75cm\rightskip=0.75cm
+	\footnotesize
+	
+	\centering
+	
+	\begin{footnotesize}
+		
+		\begin{tabular}{L{2cm}C{2cm}C{4cm}}
+			\toprule
+			Estimator &  Coefficients & T-statistics (p-value)    \\
+			\midrule
+			& 0.0005 & 1.372 (0.172)\\
+			$\beta_{1}$ & -0.0015 & -0.667 (0.506)\\
+			$\beta_{2}$ & 0.0000 & -0.061 (0.951)\\
+			\bottomrule
+		\end{tabular}
+		
+	\end{footnotesize}
+	
+\label{table:valueHypo}
+\end{table}
+
+Table \ref{table:valueHypo} reports the result of the currency value strategy. 
+Similar to the second carry portfolio (where we rank currencies by their forward differentials),
+the slope of $\beta_{1}$ is slightly negative while the slope of $\beta_{2}$ does not affect the excess return.
+However, contrary to the second carry portfolio, $\beta_{1}$
+and $\beta_{2}$ are both statistically insignificantly in influencing the strategy excess return.
+
+\section{Conclusion}
+
+In this article, we review four currency factor strategies published in top academic journals: two carry strategies, one momentum strategy, 
+and one value strategy. In particular, we examine their out-of-sample performance. We show that three out of four factors weaken after their original sample period, while the currency momentum strategy is the only exception, suggesting that there exists a data-snooping problem in currency factors. 
+Moreover, we find a negative and significant publication effect on currency momentum. Nevertheless, the currency momentum strategy remains profitable out-of-sample and post-publication. While the weakening of some currency factors may be explained by data-snooping and arbitrage activities, we cannot rule out the possibilities of systematic risk factors in driving currency factor returns.
+
+
+Our work contributes to the literature in currency return predictability, capital market efficiency, data-snooping and publication effects. Going forward, future researchers can look into other currency factors published in academic or practitioner journals. It is also interesting to study whether currency strategies behave differently across developed and emerging markets. Finally, researchers can further examine how portfolio formation methods, weighting schemes, and transaction costs may impact currency strategy performances.
+
+%----------------------------------------------------------------------------------------
+%	REFERENCE LIST
+%----------------------------------------------------------------------------------------
+\newpage
+
+\bibliographystyle{jf} % Command for using BibTeX % Plainnat is the format for natbib package
+\bibliography{CurrPredict_(2)} % Choose the References.bib
+
+%------------------------------------------------
+
+
+
+
+\end{document}
